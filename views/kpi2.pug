@@ -1,0 +1,55 @@
+extends /layout
+        
+block content
+  h1= title
+  table.table.table-hover.table-striped.table-bordered
+    thead
+      tr
+        th #
+        th Operator
+        th Customer
+        th Wellname
+        th Account Mgr
+        th Quote #
+        th Job Type
+        th Date
+        th FSO #
+        th Formation
+    tbody
+    - for (var i = 0; i < kpi.length; ++i) {
+       tr
+        //-  th(scope='row') #{i+1}
+        //-  td #{kpi[i]['Operator']}
+        //-  td #{kpi[i]['Customer']}
+        //-  td #{kpi[i]['Wellname']}
+        //-  td #{kpi[i]['Account Mgr']}
+        //-  td #{kpi[i]['Quote #']}
+        //-  td #{kpi[i]['Job Type']}
+        //-  td #{kpi[i]['Date']}
+        //-  td #{kpi[i]['FSO #']}
+        //-  td #{kpi[i]['Formation']}
+        th(scope='row') #{i+1}
+        td #{kpi.operatorname}
+        td #{kpi.customername}
+        td #{kpi.wellname}
+        td #{kpi.accountmgr}
+        td #{kpi.quotenumber}
+        td #{kpi.jobtype}
+        td #{kpi.date}
+        td #{kpi.fsonumber}
+        td #{kpi.formation}
+    - }    
+
+    //- script
+    //-  | console.log('kpi wellname = ' + #{kpi.wellname});
+
+    //-  | var kpi = !{JSON.stringify(kpi)};
+    //-  | var fields = [];
+    //-  | for (var key in kpi) fields.push(key)
+    //-  | console.log(fields)
+
+    if errors
+        p.font(size='24') Error finding KPI: 
+        ul.font(size='24')
+        for error in errors
+            li!= error.msg

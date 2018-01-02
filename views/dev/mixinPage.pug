@@ -1,0 +1,14 @@
+
+block mixinnav
+    +BSnav("Database Access", "nav_dropdown_menu_1")
+        +BSnav_item( "index.html", "active" ) Home
+        +BSnav_item( "about.html" ) About
+        +BSnav_item( "contact.html" ) Contact
+        +BSnav_item_dropdown( "#" )( label="Dropdown" )
+            +BSnav_item( "#" ) Action
+            +BSnav_item( "#" ) Another action
+            +BSnav_item( "#" ) Something else here
+            +BSnav_divider
+            +BSnav_header Nav header
+            +BSnav_item( "#" ) Separated link
+            +BSnav_item( "#" ) One more separated link

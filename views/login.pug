@@ -1,0 +1,25 @@
+//- index.pug
+  This template extends the BSNav.pug to include the navigation into the layout
+  extend layout instead of BSNav to remove the navigation (e.g. login page)
+extends /components/BSNav
+
+block content
+  h1= title
+  p Click on generate PDF link to Generate PDF of the selected data.
+  table.table.table-hover.table-striped.table-bordered
+    thead
+      tr
+        th #
+        th firstname
+        th lastname
+        th email
+    tbody
+    - for (var i = 0; i < login.length; ++i) {
+       tr
+         th(scope='row') #{i+1}
+         td #{login[i]['firstname']}
+         td #{login[i]['lastname']}
+         td
+          a(href="/pdf?id=" + login[i]['id'])
+           | Generate PDF
+    - }
